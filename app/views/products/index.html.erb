@@ -1,0 +1,26 @@
+<h1 id="header-message">LIME</h1>
+
+<!--  -->
+<!-- プロダクト一覧 -->
+<% if @products %>
+  <% @products.each do |product| %>
+  <p><%= product.title %></p>
+  <p><%= product.description %></p>
+  <%= image_tag product.image_name.thumb.url %>
+  <p>価格</p>
+  <p><%= product.price %>円</p>
+    <%= link_to("詳細", "/products/#{product.id}") %>
+  <% end %>
+<% end %>
+
+
+<%= link_to("商品追加", new_product_path) %>
+
+
+
+<% if user_signed_in? %>
+  <%= link_to("ログアウト", destroy_user_session_path, {method: "delete"}) %>
+<% else %>
+  <%= link_to("新規登録", new_user_registration_path) %>
+  <%= link_to("ログイン", new_user_session_path) %>
+<% end %>

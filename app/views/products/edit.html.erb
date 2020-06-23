@@ -1,0 +1,10 @@
+<h1>商品編集</h1>
+<%= form_with model: @product, local: true do |f| %>
+  <%= f.text_field :title, :placeholder => "商品名（20文字以内）" %>
+  <%= f.text_area :description, :placeholder => "商品説明（500文字以内）" %>
+  <%= image_tag @product.image_name.thumb.url %>
+  <%= f.file_field :image_name %>
+  <%= f.number_field :price, :placeholder => "価格（税込）" %>
+  <%= f.number_field :stock_quantity, :placeholder => "在庫数" %>
+  <%= f.submit value="登録" %>
+<% end %>
