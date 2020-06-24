@@ -1,10 +1,44 @@
 <h1>商品編集</h1>
-<%= form_with model: @product, local: true do |f| %>
-  <%= f.text_field :title, :placeholder => "商品名（20文字以内）" %>
-  <%= f.text_area :description, :placeholder => "商品説明（500文字以内）" %>
-  <%= image_tag @product.image_name.thumb.url %>
-  <%= f.file_field :image_name %>
-  <%= f.number_field :price, :placeholder => "価格（税込）" %>
-  <%= f.number_field :stock_quantity, :placeholder => "在庫数" %>
-  <%= f.submit value="登録" %>
+
+<% @product.errors.full_messages.each do |message| %>
+  <div class="flash time-limit">
+    <%= message %>
+  </div>
 <% end %>
+
+<div class="form-wrapper">
+<%= form_with model: @product, local: true do |f| %>
+  <div class="form">
+    <p>商品名（20文字以内）</p>
+    <%= f.text_field :title, :placeholder => "商品名（20文字以内）" %>
+  </div>
+  <div class="form">
+    <p>商品説明（500文字以内）</p>
+    <%= f.text_area :description, :placeholder => "商品説明（500文字以内）" %>
+  </div>
+  <div class="form">
+    <p>価格（税込）※数字のみ記述</p>
+    <%= f.number_field :price, :placeholder => "価格（税込）※数字のみ記述" %>
+  </div>
+  <div class="form">
+    <p>在庫数 ※数字のみ記述</p>
+    <%= f.number_field :stock_quantity, :placeholder => "在庫数※数字のみ記述" %>
+  </div>
+  <div class="form img">
+    <p>画像</p>
+    <%= f.file_field :image_name %>
+  </div>
+  <div class="form">
+    <%= image_tag @product.image_name.thumb.url %>
+  </div>
+  <div class="form">
+    <%= f.submit value="登録" %>
+  </div>
+<% end %>
+</div>
+
+<div class="admin-btn">
+  <%= link_to("戻る", root_path) %>
+</div>
+
+<br><br>

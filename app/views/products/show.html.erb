@@ -1,11 +1,37 @@
+<h1>管理者画面</h1>
 <h1>商品詳細</h1>
-<p><%= @product.title %></p>
-<p><%= @product.description %></p>
-<%= image_tag @product.image_name.thumb.url %>
-<p>価格</p>
-<p><%= @product.price %>円</p>
-<p>在庫</p>
-<p><%= @product.stock_quantity %>個</p>
-<%= link_to("編集", edit_product_path) %>
-<%= link_to("削除", "/products/#{@product.id}", {method: "delete"}) %>
-<%= link_to("戻る", root_path) %>
+<div class="form-wrapper">
+  <div class="product-title">
+    <p><%= @product.title %></p>
+  </div>
+  <div class="product-description">
+    <p><%= @product.description %></p>
+  </div>
+  <div class="product-image">
+    <%= image_tag @product.image_name.thumb50.url %>
+  </div>
+  <div class="product-price">
+    <p>価格</p>
+    <p><%= @product.price %>円</p>
+  </div>
+  <div class="product-stock_quantity">
+    <p>在庫</p>
+    <p><%= @product.stock_quantity %>個</p>
+  </div>
+</div>
+
+<br><br>
+
+<div class="admin-btn">
+  <%= link_to("編集", edit_product_path) %>
+</div>
+
+<div class="admin-btn">
+  <%= link_to("削除", "/products/#{@product.id}", method: :delete, data: {confirm: '本当に削除しますか?'}) %>
+</div>
+
+<div class="admin-btn">
+  <%= link_to("戻る", root_path) %>
+</div>
+
+<br><br>

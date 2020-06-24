@@ -1,7 +1,7 @@
 class ImageNameUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # minimagickを使うため↓
+  # minimagickを使うためコメントアウトを外した↓
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -36,14 +36,11 @@ class ImageNameUploader < CarrierWave::Uploader::Base
 
   #サムネイルの為に画像をリサイズ
   version :thumb do
-    process resize_to_fit: [200, 200]
+    process resize_to_fill: [200, 200,"Center"]
   end
   version :thumb50 do
-    process resize_to_fit: [100, 100]
+    process resize_to_fill: [100, 100,"Center"]
   end
-
-   #JPGで保存
-   process :convert => 'jpg'
 
    # jpg,jpeg,gif,pngのみ
    def extension_white_list

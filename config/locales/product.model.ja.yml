@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      product: 商品
+    attributes:
+      product:
+        title: 商品名
+        description: 商品詳細
+        image_name: 写真
+        price: 価格(税込み)
+        stock_quantity: 在庫数

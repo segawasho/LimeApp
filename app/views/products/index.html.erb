@@ -1,26 +1,87 @@
-<h1 id="header-message">LIME</h1>
-
 <!--  -->
+
+<img class="home-image" src="<%= asset_path('lime_home.jpg') %>">
 <!-- プロダクト一覧 -->
-<% if @products %>
-  <% @products.each do |product| %>
-  <p><%= product.title %></p>
-  <p><%= product.description %></p>
-  <%= image_tag product.image_name.thumb.url %>
-  <p>価格</p>
-  <p><%= product.price %>円</p>
-    <%= link_to("詳細", "/products/#{product.id}") %>
+<div class="wrapper">
+  <% if @products %>
+    <% @products.each do |product| %>
+
+        <div class="img-modal-wrapper">
+          <div class="modal">
+            <div class="close-modal">
+              <i class="fa fa-remove" aria-hidden="true"></i>
+            </div>
+            <div class="post-img-modal">
+              <%= image_tag product.image_name.url %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-title">
+            <p><%= product.title %></p>
+          </div>
+          <div class="product-image">
+            <%= image_tag product.image_name.thumb.url %>
+          </div>
+          <div class="product-description">
+            <p><%= product.description %></p>
+          </div>
+          <div class="product-price">
+            <p>価格(税・送料込み)</p>
+            <p id="price"><%= product.price %>円</p>
+          </div>
+          <% if @user && current_user.admin? %>
+            <div class="product-show">
+              <%= link_to("詳細(管理者)", "/products/#{product.id}") %>
+            </div>
+          <% elsif @user %>
+            <div class="product-show">
+              <%= link_to("購入する", root_path) %>
+            </div>
+          <% else %>
+            <div class="product-show">
+              <%= link_to("購入する", new_user_registration_path) %>
+              <p>※登録が必要です。</p>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
   <% end %>
+</div>
+
+
+<% if @user && current_user.admin? %>
+  <div class="admin-btn">
+    <%= link_to("商品追加", new_product_path) %>
+  </div>
 <% end %>
 
+<footer>
 
-<%= link_to("商品追加", new_product_path) %>
+  <div class="snss">
+      <a class="twitter" target="_blank"  rel="noopner noreferrer" href="https://twitter.com/tthr1230"><i class="fa fa-twitter"></i>Twitter</a>
+      <a class="instagram"  target="_blank" rel="noopner noreferrer" href="https://www.instagram.com/lime_jp/"><i class="fa fa-instagram"></i>Instagram</a>
+      <a class="youtube" target="_blank" rel="noopner noreferrer" href="https://www.youtube.com/channel/UCbqm_dCvxsdHnaFGT7GZsPg?view_as=subscriber&app=desktop"><i class="fa fa-youtube"></i>Youtube</a>
+  </div>
 
 
 
-<% if user_signed_in? %>
-  <%= link_to("ログアウト", destroy_user_session_path, {method: "delete"}) %>
-<% else %>
-  <%= link_to("新規登録", new_user_registration_path) %>
-  <%= link_to("ログイン", new_user_session_path) %>
-<% end %>
+  <% if user_signed_in? %>
+    <div class="footer-right">
+      <%= link_to("ログアウト", destroy_user_session_path, {method: "delete"}) %>
+    </div>
+  <% else %>
+    <div class="footer-right">
+      <%= link_to("新規登録", new_user_registration_path) %>
+      <%= link_to("ログイン", new_user_session_path) %>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <div class="login-user">
+      <p><%= current_user.email %>でログイン中</p>
+    </div>
+  <% end %>
+</footer>
