@@ -9,18 +9,28 @@ $(document).on('turbolinks:load', function() {
   $("#header-message").hide().fadeIn(4000);
   setTimeout("$('.time-limit').fadeOut('slow')", 2000)
   $(".home-image").hide().fadeIn(4500);
-  $(window).scroll(function(){
+
+  /* プロダクトをスクロールで表示させる */
+  /* 若干この演出が邪魔に感じるのでコメントアウト中 */
+  /* $(window).scroll(function(){
     if ($(this).scrollTop() > 100) {
         $(".wrapper").slideDown(2000);
     } else {
         $(".wrapper").hide();
     }
-  });
+  }); */
 
-  /* 写真拡大モーダル */
-  $('.prodact-image').click(
+
+
+
+  /* 写真拡大モーダル  */
+
+  $('.product-image').click(
   function(){
-    $('.img-modal-wrapper').fadeIn();
+    $($(this).data('target')).fadeIn();
+  });
+  $('.close-modal').click(function(){
+    $('.img-modal-wrapper').fadeOut();
   });
 
 });

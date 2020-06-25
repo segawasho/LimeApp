@@ -1,5 +1,21 @@
 <h1>管理者画面</h1>
 <h1>商品詳細</h1>
+
+
+<div class="img-modal-wrapper" id="modal_<%= @product.id %>">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fa fa-remove" aria-hidden="true"></i>
+    </div>
+    <div>
+      <%= image_tag @product.image_name.thumb.url %>
+    </div>
+  </div>
+</div>
+
+
+
+
 <div class="form-wrapper">
   <div class="product-title">
     <p><%= @product.title %></p>
@@ -7,7 +23,7 @@
   <div class="product-description">
     <p><%= @product.description %></p>
   </div>
-  <div class="product-image">
+  <div class="product-image" data-target="#modal_<%= @product.id %>">
     <%= image_tag @product.image_name.thumb50.url %>
   </div>
   <div class="product-price">
@@ -22,13 +38,16 @@
 
 <br><br>
 
+<% if @user && current_user.admin? %>
 <div class="admin-btn">
   <%= link_to("編集", edit_product_path) %>
 </div>
 
 <div class="admin-btn">
-  <%= link_to("削除", "/products/#{@product.id}", method: :delete, data: {confirm: '本当に削除しますか?'}) %>
+  <%= link_to("削除", "/products/#{@product.id}", method: :delete) %>
 </div>
+<% end %>
+
 
 <div class="admin-btn">
   <%= link_to("戻る", root_path) %>
