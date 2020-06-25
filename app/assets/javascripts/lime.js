@@ -4,11 +4,12 @@ $(document).on('turbolinks:load', function() {
 
 
   //application.html.erb
-  $("header").hide().fadeIn(1000);
-  $(".logo").hide().fadeIn(2000);
-  $("#header-message").hide().fadeIn(4000);
-  setTimeout("$('.time-limit').fadeOut('slow')", 2000)
-  $(".home-image").hide().fadeIn(4500);
+  $("header").hide().fadeIn(500);
+  $(".logo").hide().fadeIn(700);
+  $("#header-message").hide().fadeIn(2000);
+  setTimeout("$('.time-limit').fadeOut('slow')", 1000)
+  $(".home-image").hide().fadeIn(1500);
+  $(".wrapper").hide().fadeIn(2000);
 
   /* プロダクトをスクロールで表示させる */
   /* 若干この演出が邪魔に感じるのでコメントアウト中 */
