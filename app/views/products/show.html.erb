@@ -8,7 +8,7 @@
       <i class="fa fa-remove" aria-hidden="true"></i>
     </div>
     <div>
-      <%= image_tag @product.image_name.thumb.url %>
+      <%= image_tag @product.image_name.thumb50.url %>
     </div>
   </div>
 </div>
@@ -24,7 +24,7 @@
     <p><%= @product.description %></p>
   </div>
   <div class="product-image" data-target="#modal_<%= @product.id %>">
-    <%= image_tag @product.image_name.thumb50.url %>
+    <%= image_tag @product.image_name.thumb.url %>
   </div>
   <div class="product-price">
     <p>価格</p>
