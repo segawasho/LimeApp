@@ -91,7 +91,7 @@ padding:0 20px;
 
 /* SNS */
 .snss{
-  width:400px;
+  width:500px;
   margin:0 auto;
   display: inline-block;
   line-height: 70px;
@@ -268,7 +268,6 @@ a:link, a:hover, a:visited, a:active{
   background-color: #DDDDDD;
 }
 
-
 .admin-btn{
   font-size: 30px;
   box-shadow: 0 2px 6px #111111;
@@ -285,6 +284,17 @@ a:link, a:hover, a:visited, a:active{
 
 
 /* モダル */
+  .img-modal-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+  }
+
   .modal {
     position: absolute;
     top: 50%;
@@ -294,27 +304,13 @@ a:link, a:hover, a:visited, a:active{
     -ms-transform: translate(-50%, -50%);
   }
 
+
+
   .close-modal{
     float:right;
     font-size:30px;
     color:white;
   }
-
-  .img-modal-wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 100;
-    display: none;
-  }
-
-  .post-img-modal{
-    width:500px;
-  }
-
 
   .fa-remove{
     cursor:pointer;
