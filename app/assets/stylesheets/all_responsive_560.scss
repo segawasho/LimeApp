@@ -156,7 +156,7 @@ a:link, a:hover, a:visited, a:active{
 
 /* フォーム */
 .form-wrapper{
-  width:50%;
+  width:80%;
   margin:0 auto;
 }
 
@@ -212,7 +212,7 @@ a:link, a:hover, a:visited, a:active{
 
 .product-title p{
   line-height: 40px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   margin:0;
 }
@@ -334,6 +334,16 @@ a:link, a:hover, a:visited, a:active{
     color:#800000;
   }
 
+
+
+  /*オーダーページ*/
+  .order-wrapper{
+    width:80%;
+    margin:0 auto;
+    margin-bottom:5px;
+    background-color: #C0C0C0;
+    box-shadow: 2px 2px 2px #111111;
+  }
 
 
 }
