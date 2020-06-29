@@ -59,7 +59,12 @@ class ProductsController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy'
     )
-      redirect_to root_path, notice:'購入しました'
+    @order = Order.new(
+      user_id: current_user.id,
+      product_id: params[:id]
+    )
+    @order.save
+    redirect_to root_path, notice:'購入しました'
   end
 
 
