@@ -34,4 +34,9 @@ $(document).on('turbolinks:load', function() {
     $('.img-modal-wrapper').fadeOut();
   });
 
+
+  /* 特定商取引法表示　商品ページで表示させたい　loadで */
+
+
+
 });

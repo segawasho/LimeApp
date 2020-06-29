@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+body{
+  background-color: #DCDCDC;
+}
+
 
 
 /* application.html.erb */
@@ -206,13 +210,14 @@ a:link, a:hover, a:visited, a:active{
 .product-title{
   margin:0 auto;
   padding:10px;
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
   box-shadow: 0 2px 6px #111111;
   height:70px;
   overflow: scroll;
 }
 
 .product-title p{
+  color:#333333;
   line-height: 70px;
   font-size: 20px;
   font-weight: bold;
@@ -230,16 +235,17 @@ a:link, a:hover, a:visited, a:active{
 }
 
 .product-description{
+  color:#333333;
   margin:0 auto;
   padding:10px;
   height:auto;
   box-shadow: 0 2px 2px #111111;
-
   height:70px;
   overflow: scroll;
 }
 
 .product-price, .product-stock_quantity{
+  color:#333333;
   margin:0 auto;
   padding:10px;
   box-shadow: 0 2px 2px #111111;
@@ -260,30 +266,44 @@ a:link, a:hover, a:visited, a:active{
 
 
 .product-show a:link,.product-show a:hover,.product-show a:visited,.product-show a:active{
-  color:black;
+  color:#333333;
   display: block;
   line-height: 40px;
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
+  border: 1px solid #111111;
   box-shadow: 0 2px 2px #111111;
 }
 
 .product-show a:hover{
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
+}
+
+.admin-btn-wrapper{
+  padding: 30px;
 }
 
 .admin-btn{
+  display: inline-block;
   font-size: 30px;
   box-shadow: 0 2px 6px #111111;
   width:150px;
   margin:0 auto;
   margin-bottom:20px;
-  background-color: #CCCCCC;
+  background-color: #A9A9A9;
 }
 
 .admin-btn a{
-    display: block;
+  display: block;
 }
 
+/* notation 特定商取引法表示 */
+.notation{
+
+}
+
+.fa .fa-file-alt{
+  color:black;
+}
 
 
 /* モダル */
@@ -351,6 +371,26 @@ a:link, a:hover, a:visited, a:active{
   background-color: #AAAAAA;
 }
 
+/* 特定商取引法表示 */
+.notation-wrapper{
+  width:70%;
+  margin:0 auto;
+}
 
+.notation-title{
+  font-size:30px;
+  border-bottom:2px solid black;
+  margin-bottom: 10px;
+}
+
+.notation-description-title{
+  font-size:20px;
+  border-bottom:1px solid #696969;
+}
+
+.notation-wrapper p{
+  font-size:12px;
+  margin-bottom:20px;
+}
 
 }

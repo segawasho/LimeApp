@@ -61,14 +61,24 @@
   <% end %>
 </div>
 
+<div class="notation">
+  <%= link_to("/notation") do %>
+    特定商取引法表示
+  <% end %>
+</div>
+
 
 <% if @user && current_user.admin? %>
+<div class="admin-btn-wrapper">
+  <p>管理者リンク</p>
+
   <div class="admin-btn">
     <%= link_to("商品追加", new_product_path) %>
   </div>
   <div class="admin-btn">
     <%= link_to("オーダー", orders_index_path) %>
   </div>
+</div>
 <% end %>
 
 <footer>

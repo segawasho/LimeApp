@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products
   get '/products/:id/buy' => 'products#buy'
   post '/products/:id/pay' => 'products#pay'
+  get '/notation' => 'products#notation'
   get '/orders/index' => 'order#index'
   devise_for :users
 end
