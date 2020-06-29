@@ -53,6 +53,8 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find_by(id: params[:id])
+    @user = current_user
+    @admin_user = User.find_by(admin: 1)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => @product.price,
@@ -66,6 +68,8 @@ class ProductsController < ApplicationController
     if @order.save
       @product.stock_quantity = @product.stock_quantity-1
       @product.save
+      BuyMailer.send_when_buy(@user, @product).deliver_now
+      BuyMailer.send_when_buy_admin(@admin_user, @user, @product).deliver_now
       redirect_to root_path, notice:'購入しました'
     else
       render root_path, notice:'購入に失敗しました'

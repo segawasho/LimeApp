@@ -38,19 +38,24 @@
 
 <br><br>
 
+<% if @product.stock_quantity > 0 %>
+  <%= form_with local: true, url: "/products/#{@product.id}/pay" do |form| %>
+    <script
+      type="text/javascript"
+      src="https://checkout.pay.jp"
+      class="payjp-button"
+      data-key= "<%= ENV["PAYJP_ACCESS_KEY"] %>">
+    </script>
+  <% end %>
 
-<%= form_with local: true, url: "/products/#{@product.id}/pay" do |form| %>
-  <script
-    type="text/javascript"
-    src="https://checkout.pay.jp"
-    class="payjp-button"
-    data-key= "<%= ENV["PAYJP_ACCESS_KEY"] %>">
-  </script>
+  <div class="reload-btn">
+    <a href="javascript:location.reload();">※購入ボタンが表示されない場合<br>こちらをクリックして更新してください。</a>
+  </div>
+
+<% else %>
+  <p>※申し訳ありません。こちらの商品は入荷待ちです。</p>
 <% end %>
 
-<div class="reload-btn">
-  <a href="javascript:location.reload();">※購入ボタンが表示されない場合<br>こちらをクリックして更新してください。</a>
-</div>
 
 
 <br><br>
