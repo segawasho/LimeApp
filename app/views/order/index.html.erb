@@ -1,8 +1,13 @@
 <h1>管理者画面</h1>
-<h2>オーダー一覧</h2>
+<h2>購入された商品</h2>
 <% if @orders %>
   <% @orders.each do |order| %>
   <div class="order-wrapper">
+
+    <div class="order-created_at">
+      <%= order.created_at.strftime("%Y-%m-%d %H:%M") %>
+    </div>
+
     <!-- userの定義 -->
     <% @user = User.find_by(id: order.user_id) %>
 
@@ -30,9 +35,6 @@
     </div>
     <div class="order-product-image">
       <%= image_tag @product.image_name.thumb.url %>
-    </div>
-    <div class="order-created_at">
-      <%= order.created_at.strftime("%Y-%m-%d %H:%M") %>
     </div>
   </div>
   <% end %>
