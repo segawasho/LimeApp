@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find_by(id: params[:id])
-    Payjp.api_key = "sk_test_21264fa2591c75beb19bc7e9"
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => @product.price,
       :card => params['payjp-token'],
