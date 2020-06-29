@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+body{
+  background-color: #DCDCDC;
+}
+
 
 
 /* application.html.erb */
@@ -204,13 +208,14 @@ a:link, a:hover, a:visited, a:active{
 
 .product-title{
   margin:0 auto;
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
   box-shadow: 0 2px 6px #111111;
   height:40px;
   overflow: scroll;
 }
 
 .product-title p{
+  color:#333333;
   line-height: 40px;
   font-size: 10px;
   font-weight: bold;
@@ -229,6 +234,7 @@ a:link, a:hover, a:visited, a:active{
 }
 
 .product-description{
+  color:#333333;
   margin:0 auto;
   padding:10px;
   height:auto;
@@ -242,6 +248,7 @@ a:link, a:hover, a:visited, a:active{
 }
 
 .product-price, .product-stock_quantity{
+  color:#333333;
   margin:0 auto;
   padding:10px;
   box-shadow: 0 2px 2px #111111;
@@ -266,27 +273,34 @@ a:link, a:hover, a:visited, a:active{
 
 
 .product-show a:link,.product-show a:hover,.product-show a:visited,.product-show a:active{
-  color:black;
+  color:#333333;
   display: block;
   line-height: 40px;
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
+  border: 1px solid #111111;
   box-shadow: 0 2px 2px #111111;
 }
 
 .product-show a:hover{
-  background-color: #DDDDDD;
+  background-color: #A9A9A9;
+}
+
+.admin-btn-wrapper{
+  padding: 30px;
 }
 
 .admin-btn{
-  font-size: 30px;
+  display: inline-block;
+  font-size: 20px;
   box-shadow: 0 2px 6px #111111;
   width:150px;
   margin:0 auto;
   margin-bottom:20px;
-  background-color: #CCCCCC;
+  background-color: #A9A9A9;
 }
 
 .admin-btn a{
+    padding:10px 30px 10px 30px;
     display: block;
 }
 
@@ -357,5 +371,31 @@ a:link, a:hover, a:visited, a:active{
     background-color: #AAAAAA;
   }
 
+
+  /* 特定商取引法表示 */
+  .notation{
+    font-size:13px;
+  }
+
+  .notation-wrapper{
+    width:70%;
+    margin:0 auto;
+  }
+
+  .notation-title{
+    font-size:15px;
+    border-bottom:2px solid black;
+    margin-bottom: 10px;
+  }
+
+  .notation-description-title{
+    font-size:10px;
+    border-bottom:1px solid #696969;
+  }
+
+  .notation-wrapper p{
+    font-size:6px;
+    margin-bottom:20px;
+  }
 
 }
