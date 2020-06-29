@@ -47,6 +47,22 @@ class ProductsController < ApplicationController
   end
 
 
+  def buy
+    @product = Product.find_by(id: params[:id])
+  end
+
+  def pay
+    @product = Product.find_by(id: params[:id])
+    Payjp.api_key = "sk_test_21264fa2591c75beb19bc7e9"
+    Payjp::Charge.create(
+      :amount => @product.price,
+      :card => params['payjp-token'],
+      :currency => 'jpy'
+    )
+      redirect_to root_path, notice:'購入しました'
+  end
+
+
   private
   def product_params
     params.require(:product).permit(:title,:description,:image_name,:price,:stock_quantity)

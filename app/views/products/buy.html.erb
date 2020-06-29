@@ -1,0 +1,52 @@
+
+<div class="img-modal-wrapper" id="modal_<%= @product.id %>">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fa fa-remove" aria-hidden="true"></i>
+    </div>
+    <div>
+      <%= image_tag @product.image_name.thumb50.url %>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="form-wrapper">
+  <div class="product-title">
+    <p><%= @product.title %></p>
+  </div>
+  <div class="product-description">
+    <p><%= @product.description %></p>
+  </div>
+  <div class="product-image" data-target="#modal_<%= @product.id %>">
+    <%= image_tag @product.image_name.thumb.url %>
+  </div>
+  <div class="product-price">
+    <p>価格</p>
+    <p><%= @product.price %>円</p>
+  </div>
+  <div class="product-stock_quantity">
+    <p>在庫</p>
+    <p><%= @product.stock_quantity %>個</p>
+  </div>
+</div>
+
+<br><br>
+
+<%= form_with local: true, url: "/products/#{@product.id}/pay" do |form| %>
+  <script
+    type="text/javascript"
+    src="https://checkout.pay.jp"
+    class="payjp-button"
+    data-key= "pk_test_2e800316c28be57200d6757b">
+  </script>
+<% end %>
+
+
+<div class="admin-btn">
+  <%= link_to("戻る", root_path) %>
+</div>
+
+<br><br>
