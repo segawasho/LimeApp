@@ -334,9 +334,21 @@ a:link, a:hover, a:visited, a:active{
 .order-wrapper{
   width:60%;
   margin:0 auto;
-  margin-bottom:5px;
+  margin-bottom:30px;
   background-color: #C0C0C0;
   box-shadow: 2px 2px 2px #111111;
+}
+
+.order-name,.order-email,.order-address,.order-product-title,.order-product-price,.order-product-stock_quantity,.order-product-image,.order-created_at{
+  box-shadow: 1px 1px 1px #111111;
+}
+
+.order-product-image{
+  padding:10px;
+}
+
+.order-created_at{
+  background-color: #AAAAAA;
 }
 
 

@@ -63,8 +63,13 @@ class ProductsController < ApplicationController
       user_id: current_user.id,
       product_id: params[:id]
     )
-    @order.save
-    redirect_to root_path, notice:'購入しました'
+    if @order.save
+      @product.stock_quantity = @product.stock_quantity-1
+      @product.save
+      redirect_to root_path, notice:'購入しました'
+    else
+      render root_path, notice:'購入に失敗しました'
+    end
   end
 
 
