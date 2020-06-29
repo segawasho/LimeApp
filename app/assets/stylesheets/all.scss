@@ -225,6 +225,10 @@ a:link, a:hover, a:visited, a:active{
   box-shadow: 0 2px 2px #111111;
 }
 
+.product-image-p{
+  color:#808080;
+}
+
 .product-description{
   margin:0 auto;
   padding:10px;
@@ -316,6 +320,14 @@ a:link, a:hover, a:visited, a:active{
   }
 
 
+/* buyページ　更新ボタン */
+.reload-btn{
+  text-decoration: underline;
+}
+.reload-btn a:link{
+  font-size: 15px;
+  color:#800000;
+}
 
 
 }
