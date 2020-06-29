@@ -1,3 +1,5 @@
+<br><br>
+
 
 <div class="img-modal-wrapper" id="modal_<%= @product.id %>">
   <div class="modal">
@@ -22,6 +24,7 @@
   </div>
   <div class="product-image" data-target="#modal_<%= @product.id %>">
     <%= image_tag @product.image_name.thumb.url %>
+    <div class="product-image-p">クリックで画像拡大</div>
   </div>
   <div class="product-price">
     <p>価格</p>
@@ -35,6 +38,7 @@
 
 <br><br>
 
+
 <%= form_with local: true, url: "/products/#{@product.id}/pay" do |form| %>
   <script
     type="text/javascript"
@@ -43,6 +47,14 @@
     data-key= "<%= ENV["PAYJP_ACCESS_KEY"] %>">
   </script>
 <% end %>
+
+<div class="reload-btn">
+  <a href="javascript:location.reload();">※購入ボタンが表示されない場合<br>こちらをクリックして更新してください。</a>
+</div>
+
+
+<br><br>
+
 
 
 <div class="admin-btn">
