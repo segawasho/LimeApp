@@ -1,4 +1,9 @@
 <h2>新規登録</h2>
+<div class="registration-message">
+  <p>※名前・住所は、商品発送の際に必要になります。<br>
+  正しく記載してください。</p>
+  <p>個人情報の取扱については<%= link_to("こちら", "/notation") %>をご確認ください。</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -31,10 +36,20 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+<br>
+
   <div class="actions">
     <%= f.submit "登録" %>
   </div>
 <% end %>
 
+<br>
+
 <%= render "devise/shared/links" %>
+
+<br>
+
 <%= link_to("戻る", root_path) %>
+
+
+<br><br><br>

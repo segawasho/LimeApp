@@ -1,4 +1,7 @@
 class ImageNameUploader < CarrierWave::Uploader::Base
+
+  #このアップローダーは使いません。
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # minimagickを使うためコメントアウトを外した↓
