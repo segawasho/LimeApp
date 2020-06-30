@@ -120,7 +120,7 @@ padding:0 20px;
   margin-right:5px;
 }
 
-.fa{
+.fab{
   padding-right:5px;
 }
 
@@ -397,5 +397,53 @@ a:link, a:hover, a:visited, a:active{
     font-size:6px;
     margin-bottom:20px;
   }
+
+
+  /* 特定商取引法表示　showページ */
+  .notation-wrapper-2{
+    width:70%;
+    margin:0 auto;
+  }
+
+  .notation-product, .notation-personal, .notation-leader{
+    background-color: #CCCCCC;
+    border:1px solid #111111;
+    box-shadow: 1px 1px 1px #111111;
+  }
+
+  .notation-product, .notation-personal, .notation-leader p{
+    font-size: 10px;
+  }
+
+  .notation-btn{
+    height: 35px;
+  }
+
+  .notation-btn p{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .notation-list-item{
+    margin:15px 0px;
+  }
+
+  .notation-list-item p{
+    font-size: 11px;
+  }
+
+  .notation-btn .fa{
+    color:#333333;
+  }
+
+  .notation-btn .fa:hover{
+    cursor:pointer;
+  }
+
+  .fa-plus-square, .fa-minus-square{
+    cursor:pointer;
+  }
+
 
 }
