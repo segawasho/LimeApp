@@ -26,10 +26,22 @@
   </div>
   <div class="form img">
     <p>画像</p>
-    <%= f.file_field :image_name %>
+    <p>※画像を変えるには新しく商品を作り直してください。</p>
   </div>
   <div class="form">
-    <%= image_tag @product.image_name.thumb.url %>
+    <%= image_tag @product.images[0].thumb.url %>
+    <% if @product.images[1] %>
+      <%= image_tag @product.images[1].thumb.url %>
+    <% end %>
+    <% if @product.images[2] %>
+      <%= image_tag @product.images[2].thumb.url %>
+    <% end %>
+    <% if @product.images[3] %>
+      <%= image_tag @product.images[3].thumb.url %>
+    <% end %>
+    <% if @product.images[4] %>
+      <%= image_tag @product.images[4].thumb.url %>
+    <% end %>
   </div>
   <div class="form">
     <%= f.submit value="登録" %>

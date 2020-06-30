@@ -82,7 +82,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title,:description,:image_name,:price,:stock_quantity)
+    params.require(:product).permit(:title,:description,{images: []},:price,:stock_quantity)
   end
 
   def if_not_admin

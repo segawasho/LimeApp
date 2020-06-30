@@ -1,48 +1,70 @@
 <!--  -->
 
+<!-- indexページ背景画像 -->
 <img class="home-image" src="<%= asset_path('lime_home.jpg') %>">
 <!-- プロダクト一覧 -->
 <div class="wrapper">
   <% if @products %>
     <% @products.each do |product| %>
 
-
+        <!-- 写真モーダル１ -->
         <div class="img-modal-wrapper" id="modal_<%= product.id %>">
           <div class="modal">
             <div class="close-modal">
               <i class="fas fa-minus-circle"></i>
             </div>
             <div>
-              <%= image_tag product.image_name.thumb50.url %>
+              <%= image_tag product.images[0].thumb50.url %>
             </div>
           </div>
         </div>
 
 
+
+
+        <!-- プロダクト実態 -->
         <div class="product">
           <div class="product-title">
             <p><%= product.title %></p>
           </div>
 
-
-
-          <div class="product-image" data-target="#modal_<%= product.id %>">
-            <%= image_tag product.image_name.thumb.url %>
+          <!-- ※配列の都合上1ずつ[]の中身等がずれているので注意 -->
+          <!-- プロダクトイメージ１ -->
+          <div class="product-image-wrapper">
+            <div class="product-image" data-target="#modal_<%= product.id %>">
+              <%= image_tag product.images[0].thumb.url %>
+            </div>
             <div class="product-image-p">クリックで画像拡大</div>
+            <div class="product-more-image-link">
+              <% if product.images[1] %>
+                <%= link_to("/products/#{product.id}/buy") do %>
+                  <p>他の画像をみる<i class="fas fa-chevron-circle-right"></i></p>
+                <% end %>
+              <% end %>
+            </div>
           </div>
 
 
 
+
+          <!-- プロダクト詳細 -->
           <div class="product-description">
             <p><%= product.description %></p>
           </div>
+
+          <!-- プロダクト値段 -->
           <div class="product-price">
             <p>価格(税・送料込み)</p>
             <p id="price"><%= product.price %>円</p>
           </div>
+
+          <!-- 未ログインユーザは新規登録リンク(→購入ページリンクに変えました)、
+          ログインユーザは購入ページリンク、
+          管理者は商品管理ページリンク
+         -->
           <% if @user && current_user.admin? %>
             <div class="product-show">
-              <%= link_to("詳細(管理者)", "/products/#{product.id}") %>
+              <%= link_to("編集", "/products/#{product.id}") %>
             </div>
           <% elsif @user %>
             <div class="product-show">
@@ -50,8 +72,7 @@
             </div>
           <% else %>
             <div class="product-show">
-              <%= link_to("購入する", new_user_registration_path) %>
-              <p>※登録が必要です。</p>
+              <%= link_to("商品をみる", "/products/#{product.id}/buy") %>
             </div>
           <% end %>
         </div>
@@ -61,6 +82,8 @@
   <% end %>
 </div>
 
+
+<!-- 特定商取引法表示リンク -->
 <div class="notation">
   <%= link_to("/notation") do %>
     <p>特定商取引法表示<i class="fas fa-file-alt"></i></p>
@@ -68,6 +91,7 @@
 </div>
 
 
+<!-- 管理者のみ表示ボタン群 -->
 <% if @user && current_user.admin? %>
 <div class="admin-btn-wrapper">
   <p>管理者リンク</p>
@@ -81,8 +105,13 @@
 </div>
 <% end %>
 
+
+
+<!-- フッター -->
 <footer>
 
+
+  <!-- SNSリンク -->
   <div class="snss">
       <a class="twitter" target="_blank"  rel="noopner noreferrer" href="https://twitter.com/tthr1230"><i class="fab fa-twitter"></i></i>Twitter</a>
       <a class="instagram"  target="_blank" rel="noopner noreferrer" href="https://www.instagram.com/lime_jp/"><i class="fab fa-instagram"></i>Instagram</a>
@@ -91,6 +120,7 @@
 
 
 
+  <!-- ログイン、ログアウト、新規登録リンク -->
   <% if user_signed_in? %>
     <div class="footer-right">
       <%= link_to("ログアウト", destroy_user_session_path, {method: "delete"}) %>
@@ -102,9 +132,11 @@
     </div>
   <% end %>
 
+  <!-- ログインユーザ表示 -->
   <% if user_signed_in? %>
     <div class="login-user">
       <p><%= current_user.name %> 様ログイン中</p>
     </div>
   <% end %>
+
 </footer>
