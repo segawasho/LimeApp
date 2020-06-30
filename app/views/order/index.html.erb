@@ -10,7 +10,7 @@
 
     <!-- userの定義 -->
     <% @user = User.find_by(id: order.user_id) %>
-
+    <% if @user %>
     <div class="order-name">
       <%= @user.name %>さん
     </div>
@@ -20,10 +20,15 @@
     <div class="order-address">
       <%= @user.address %>
     </div>
+    <% else %>
+    <div class="order-name">
+      退会したユーザー
+    </div>
+    <% end %>
 
     <!-- productの定義 -->
     <% @product = Product.find_by(id: order.product_id) %>
-
+    <% if @product %>
     <div class="order-product-title">
       <%= @product.title %>
     </div>
@@ -36,6 +41,11 @@
     <div class="order-product-image">
       <%= image_tag @product.image_name.thumb.url %>
     </div>
+    <% else %>
+    <div class="order-product-title">
+      削除された商品
+    </div>
+    <% end %>
   </div>
   <% end %>
 <% end %>
