@@ -27,8 +27,12 @@
   <%= f.number_field :stock_quantity, :placeholder => "在庫数 ※数字のみ記述" %>
   </div>
   <div class="form img">
-  <p>画像</p>
-  <%= f.file_field :image_name %>
+  <p>画像（1枚必須・5枚まで任意）</p>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.file_field :images, multiple: true %>
   </div>
   <div class="form">
   <%= f.submit value="登録" %>

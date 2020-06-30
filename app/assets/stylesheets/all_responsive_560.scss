@@ -222,15 +222,42 @@ a:link, a:hover, a:visited, a:active{
   margin:0;
 }
 
-.product-image{
+.product-image-wrapper,.product-image-wrapper-1,.product-image-wrapper-2,.product-image-wrapper-3,.product-image-wrapper-4{
   margin:0 auto;
   padding:10px;
   box-shadow: 0 2px 2px #111111;
 }
 
+.product-image,.product-image-1,.product-image-2,.product-image-3,.product-image-4{
+  cursor:pointer;
+}
+
 .product-image-p{
   color:#808080;
   font-size:13px;
+}
+
+.fa-chevron-circle-right{
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.next-img, .next-img-1, .next-img-2, .next-img-3{
+  font-size:40px;
+}
+
+.fa-chevron-circle-left{
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.previous-img-1, .previous-img-2, .previous-img-3, .previous-img-4{
+  font-size:40px;
+}
+
+.product-more-image-link{
+  height:30px;
+  font-size: 14px;
 }
 
 .product-description{
@@ -307,7 +334,7 @@ a:link, a:hover, a:visited, a:active{
 
 
 /* モダル */
-  .img-modal-wrapper {
+  .img-modal-wrapper,.img-modal-wrapper-1,.img-modal-wrapper-2,.img-modal-wrapper-3,.img-modal-wrapper-4 {
     position: fixed;
     top: 0;
     right: 0;
@@ -346,6 +373,29 @@ a:link, a:hover, a:visited, a:active{
   .reload-btn a:link{
     font-size: 13px;
     color:#800000;
+  }
+
+  .buy-login p{
+    font-size:15px;
+    color:#333333;
+    margin-bottom:10px;
+  }
+
+  .buy-login a:link, .buy-login a:visited{
+    font-size: 15px;
+    color:#333333;
+    background-color: #FFFAFA;
+    padding:10px;
+    border-radius: 30px;
+    transition: 0.5s;
+  }
+
+  .buy-login a:hover{
+    font-size: 18px;
+    color:#333333;
+    background-color: #FFFAFA;
+    padding:13px;
+    border-radius: 30px;
   }
 
 

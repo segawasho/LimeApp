@@ -1,43 +1,171 @@
 <br><br>
 
 
+<!-- 写真モーダル１ -->
 <div class="img-modal-wrapper" id="modal_<%= @product.id %>">
   <div class="modal">
     <div class="close-modal">
       <i class="fas fa-minus-circle"></i>
     </div>
     <div>
-      <%= image_tag @product.image_name.thumb50.url %>
+      <%= image_tag @product.images[0].thumb50.url %>
     </div>
   </div>
 </div>
 
+<!-- 写真モーダル２ -->
+<% if @product.images[1] %>
+<div class="img-modal-wrapper-1" id="modal_<%= @product.id %>_1">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fas fa-minus-circle"></i>
+    </div>
+    <div>
+      <%= image_tag @product.images[1].thumb50.url %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- 写真モーダル３ -->
+<% if @product.images[2] %>
+<div class="img-modal-wrapper-2" id="modal_<%= @product.id %>_2">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fas fa-minus-circle"></i>
+    </div>
+    <div>
+      <%= image_tag @product.images[2].thumb50.url %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- 写真モーダル４ -->
+<% if @product.images[3] %>
+<div class="img-modal-wrapper-3" id="modal_<%= @product.id %>_3">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fas fa-minus-circle"></i>
+    </div>
+    <div>
+      <%= image_tag @product.images[3].thumb50.url %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- 写真モーダル５ -->
+<% if @product.images[4] %>
+<div class="img-modal-wrapper-4" id="modal_<%= @product.id %>_4">
+  <div class="modal">
+    <div class="close-modal">
+      <i class="fas fa-minus-circle"></i>
+    </div>
+    <div>
+      <%= image_tag @product.images[4].thumb50.url %>
+    </div>
+  </div>
+</div>
+<% end %>
 
 
 
+
+<!-- ここから商品ラッパー -->
 <div class="form-wrapper">
+  <!-- 商品タイトル -->
   <div class="product-title">
     <p><%= @product.title %></p>
   </div>
+
+  <!-- 商品詳細 -->
   <div class="product-description">
     <p><%= @product.description %></p>
   </div>
-  <div class="product-image" data-target="#modal_<%= @product.id %>">
-    <%= image_tag @product.image_name.thumb.url %>
+
+
+  <!-- ※配列の都合上1ずつ[]の中身等がずれているので注意 -->
+  <!-- プロダクトイメージ１ -->
+  <div class="product-image-wrapper">
+    <div class="product-image" data-target="#modal_<%= @product.id %>">
+      <%= image_tag @product.images[0].thumb.url %>
+    </div>
     <div class="product-image-p">クリックで画像拡大</div>
+    <% if @product.images[1] %>
+    <i class="fas fa-chevron-circle-right next-img"></i>
+    <% end %>
   </div>
+
+
+  <!-- プロダクトイメージ２ -->
+  <% if @product.images[1] %>
+  <div class="product-image-wrapper-1">
+    <div class="product-image-1" data-target="#modal_<%= @product.id %>_1">
+      <%= image_tag @product.images[1].thumb.url %>
+    </div>
+    <div class="product-image-p">クリックで画像拡大</div>
+    <i class="fas fa-chevron-circle-left previous-img-1"></i>
+    <% if @product.images[2] %>
+    <i class="fas fa-chevron-circle-right next-img-1"></i>
+    <% end %>
+  </div>
+  <% end %>
+
+  <!-- プロダクトイメージ３ -->
+  <% if @product.images[2] %>
+  <div class="product-image-wrapper-2">
+    <div class="product-image-2" data-target="#modal_<%= @product.id %>_2">
+      <%= image_tag @product.images[2].thumb.url %>
+    </div>
+    <div class="product-image-p">クリックで画像拡大</div>
+    <i class="fas fa-chevron-circle-left previous-img-2"></i>
+    <% if @product.images[3] %>
+    <i class="fas fa-chevron-circle-right next-img-2"></i>
+    <% end %>
+  </div>
+  <% end %>
+
+  <!-- プロダクトイメージ４ -->
+  <% if @product.images[3] %>
+  <div class="product-image-wrapper-3">
+    <div class="product-image-3" data-target="#modal_<%= @product.id %>_3">
+      <%= image_tag @product.images[3].thumb.url %>
+    </div>
+    <div class="product-image-p">クリックで画像拡大</div>
+    <i class="fas fa-chevron-circle-left previous-img-3"></i>
+    <% if @product.images[4] %>
+    <i class="fas fa-chevron-circle-right next-img-3"></i>
+    <% end %>
+  </div>
+  <% end %>
+
+  <!-- プロダクトイメージ５ -->
+  <% if @product.images[4] %>
+  <div class="product-image-wrapper-4">
+    <div class="product-image-4" data-target="#modal_<%= @product.id %>_4">
+      <%= image_tag @product.images[4].thumb.url %>
+    </div>
+    <div class="product-image-p">クリックで画像拡大</div>
+    <i class="fas fa-chevron-circle-left previous-img-4"></i>
+  </div>
+  <% end %>
+
+
+
+  <!-- 商品値段 -->
   <div class="product-price">
     <p>価格</p>
     <p><%= @product.price %>円</p>
-  </div>
-  <div class="product-stock_quantity">
-    <p>在庫</p>
-    <p><%= @product.stock_quantity %>個</p>
   </div>
 </div>
 
 <br><br>
 
+
+  <!-- ユーザログイン中の場合表示させる -->
+<% if user_signed_in? %>
+  <!-- 在庫が１以上のとき、カード支払いを表示させる -->
 <% if @product.stock_quantity > 0 %>
   <%= form_with local: true, url: "/products/#{@product.id}/pay" do |form| %>
     <script
@@ -52,8 +180,21 @@
     <a href="javascript:location.reload();">※購入ボタンが表示されない場合<br>こちらをクリックして更新してください。</a>
   </div>
 
+  <!-- 在庫が０のとき、カード支払いを表示させず、売り切れの旨表示させる -->
 <% else %>
   <p>※申し訳ありません。こちらの商品は入荷待ちです。</p>
+<% end %>
+
+  <!-- 未ログインユーザの際、表示させる -->
+<% else %>
+
+  <!-- 新規登録とログインリンク群 -->
+<div class="buy-login">
+  <p>※購入にはログインが必要です。</p>
+  <%= link_to("新規登録", new_user_registration_path) %>
+  <%= link_to("ログイン", new_user_session_path) %>
+</div>
+
 <% end %>
 
 
@@ -61,6 +202,8 @@
 <br><br>
 
 
+
+<!-- 以下、特定商取引法表示 -->
 <div class="notation-btn">
   <p>特定商取引法表示  <i class="fas fa-plus-square" id="notation-list-btn"></i><i class="fas fa-minus-square" id="notation-list-minus-btn"></i></p>
 </div>
@@ -184,6 +327,7 @@
 <br><br>
 
 
+<!-- root_pathリンク -->
 <div class="admin-btn">
   <%= link_to("戻る", root_path) %>
 </div>
