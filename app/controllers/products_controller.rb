@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   #adminユーザのみ閲覧できるページの設定↓
-  before_action :if_not_admin, only: [:new,:create, :show, :edit,:update, :destroy]
+  before_action :if_not_admin, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def notation
   end
