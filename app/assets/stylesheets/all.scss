@@ -65,7 +65,7 @@ header{
 
 /* footer */
 footer{
-  height:70px;
+  height:140px;
   background: #222222;
   color:white;
   width:100%;
@@ -93,7 +93,6 @@ padding:0 20px;
 
 /* ログイン中のユーザ表示 */
 .login-user{
-  float: left;
   color:white;
   line-height: 70px;
 }
@@ -107,7 +106,7 @@ padding:0 20px;
 .snss{
   width:500px;
   margin:0 auto;
-  display: inline-block;
+  display: block;
   line-height: 70px;
 }
 
