@@ -1,8 +1,6 @@
 //初回読み込み、リロード、ページ切り替えで動く。
 $(document).on('turbolinks:load', function() {
 
-
-
   //application.html.erb
   $("header").hide().fadeIn(500);
   $(".logo").hide().fadeIn(700);
@@ -20,8 +18,6 @@ $(document).on('turbolinks:load', function() {
         $(".wrapper").hide();
     }
   }); */
-
-
 
 
   /* 写真拡大モーダル  */

@@ -9,6 +9,7 @@
   margin:0;
   padding:0;
   text-align: center;
+  font-family: "Gill Sans", sans-serif;
 }
 
 body{
@@ -65,7 +66,7 @@ header{
 
 /* footer */
 footer{
-  height:140px;
+  height:215px;
   background: #222222;
   color:white;
   width:100%;
@@ -103,7 +104,20 @@ padding:0 20px;
   padding:0 20px;
 }
 
+/* 特定商取引法表示リンク */
+.notation{
+  padding: 10px;
+}
+
+.notation a:link, .notation a:visited, .notation a:hover, .notation a:active{
+  color:white;
+}
+
 /* SNS */
+.sns-title{
+  padding:10px 5px 5px 5px;
+}
+
 .snss{
   margin:0 auto;
   display: block;

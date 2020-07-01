@@ -83,12 +83,7 @@
 </div>
 
 
-<!-- 特定商取引法表示リンク -->
-<div class="notation">
-  <%= link_to("/notation") do %>
-    <p>特定商取引法表示<i class="fas fa-file-alt"></i></p>
-  <% end %>
-</div>
+
 
 
 <!-- 管理者のみ表示ボタン群 -->
@@ -110,12 +105,24 @@
 <!-- フッター -->
 <footer>
 
+  <!-- snsタイトル -->
+  <div class="sns-title">
+    <p>LIME SNS</p>
+  </div>
 
   <!-- SNSリンク -->
   <div class="snss">
       <a class="twitter" target="_blank"  rel="noopner noreferrer" href="https://twitter.com/tthr1230"><i class="fab fa-twitter"></i></i>Twitter</a>
       <a class="instagram"  target="_blank" rel="noopner noreferrer" href="https://www.instagram.com/lime_jp/"><i class="fab fa-instagram"></i>Instagram</a>
       <a class="youtube" target="_blank" rel="noopner noreferrer" href="https://www.youtube.com/channel/UCbqm_dCvxsdHnaFGT7GZsPg?view_as=subscriber&app=desktop"><i class="fab fa-youtube"></i>Youtube</a>
+  </div>
+
+
+  <!-- 特定商取引法表示リンク -->
+  <div class="notation">
+    <%= link_to("/notation") do %>
+      <p>特定商取引法表示<i class="fas fa-file-alt"></i></p>
+    <% end %>
   </div>
 
 
