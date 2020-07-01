@@ -123,6 +123,9 @@
   <!-- ログイン、ログアウト、新規登録リンク -->
   <% if user_signed_in? %>
     <div class="footer-right">
+      <div class="login-user">
+        <p><%= current_user.name %> 様ログイン中</p>
+      </div>
       <%= link_to("ログアウト", destroy_user_session_path, {method: "delete"}) %>
     </div>
   <% else %>
@@ -132,11 +135,6 @@
     </div>
   <% end %>
 
-  <!-- ログインユーザ表示 -->
-  <% if user_signed_in? %>
-    <div class="login-user">
-      <p><%= current_user.name %> 様ログイン中</p>
-    </div>
-  <% end %>
+
 
 </footer>
