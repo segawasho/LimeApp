@@ -63,6 +63,18 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "LimeApp_#{Rails.env}"
 
+  #下記　１０行追記
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            'lime.lime.lime.jp@gmail.com',
+    password:             ENV['GMAIL_PASSWORD'],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
