@@ -15,6 +15,13 @@ body{
   background-color: #DCDCDC;
 }
 
+p{
+   margin-block-start: 0px;
+   margin-block-end: 0px;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+   white-space: pre-wrap;
+}
 
 
 /* application.html.erb */
@@ -192,136 +199,151 @@ a:link, a:hover, a:visited, a:active{
 }
 
 
-/* products/index.html.erb */
-.wrapper{
-  display:flex;
-  flex-wrap:wrap;
-}
 
-.product{
-  flex:auto;
-  width:50%;
-  /* background-color: #222222; */
-  /* color:white; */
-  /* box-shadow: 0 2px 6px #111111; */
-  margin-bottom:20px;
-}
+/* products/index.html.erb プロダクト一覧ページ */
 
-.product-title{
-  margin:0 auto;
-  padding:10px;
-  background-color: #A9A9A9;
-  box-shadow: 0 2px 6px #111111;
-  height:70px;
-  overflow: scroll;
-}
+  /* ラッパー　フレックスボックスで折返し設定 */
+  .wrapper{
+    display:flex;
+    flex-wrap:wrap;
+  }
 
-.product-title p{
-  color:#333333;
-  line-height: 70px;
-  font-size: 20px;
-  font-weight: bold;
-  margin:0;
-}
+  /* 各プロダクト 50%で折り返し　パディング左右にとって、下方向にマージンで余白*/
+  .product{
+    flex:auto;
+    width:50%;
+    box-sizing: border-box;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-bottom:20px;
+  }
 
-.product-image-wrapper,.product-image-wrapper-1,.product-image-wrapper-2,.product-image-wrapper-3,.product-image-wrapper-4{
-  margin:0 auto;
-  padding:10px;
-  box-shadow: 0 2px 2px #111111;
-}
+  /* 商品レイアウト(タイトル以外)　背景色・影・マージン・パディング・カラー */
+  .product-description,.product-price, .product-stock_quantity, .product-show, .product-image-wrapper,.product-image-wrapper-1,.product-image-wrapper-2,.product-image-wrapper-3,.product-image-wrapper-4{
+    background-color: #444444;
+    border: 1px solid #CCCCCC;
+    color:black;
+    margin:0 auto;
+    padding:10px;
+  }
 
-.product-image,.product-image-1,.product-image-2,.product-image-3,.product-image-4{
-  cursor:pointer;
-}
+  /* 商品レイアウト(タイトル) */
+  .product-title{
+    margin:0 auto;
+    padding:10px;
+    background-color: #222222;
+    border: 1px solid white;
+    border-radius: 50px 50px 0px 0px;
+    height:70px;
+    overflow: scroll;
+  }
 
-.product-image-p{
-  color:#808080;
-}
+  .product-title p{
+    color:#CCCCCC;
+    line-height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin:0;
+  }
 
-.fa-chevron-circle-right{
-  cursor:pointer;
-  font-size: 20px;
-}
+  /* プロダクト写真ラッパー */
+  .product-image-wrapper,.product-image-wrapper-1,.product-image-wrapper-2,.product-image-wrapper-3,.product-image-wrapper-4{
 
-.next-img, .next-img-1, .next-img-2, .next-img-3{
-  font-size:40px;
-}
+  }
 
-.fa-chevron-circle-left{
-  cursor:pointer;
-  font-size: 20px;
-}
+  .product-image,.product-image-1,.product-image-2,.product-image-3,.product-image-4{
+    cursor:pointer;
+  }
 
-.previous-img-1, .previous-img-2, .previous-img-3, .previous-img-4{
-  font-size:40px;
-}
+  .product-image-p{
+    color:#808080;
+  }
 
-.product-more-image-link{
-  height:30px;
-}
+  /* プロダクト写真ラッパー　前の写真・次の写真のアイコン設定 */
+  .fa-chevron-circle-right{
+    cursor:pointer;
+    font-size: 20px;
+  }
 
-.product-description{
-  color:#333333;
-  margin:0 auto;
-  padding:10px;
-  height:auto;
-  box-shadow: 0 2px 2px #111111;
+  .next-img, .next-img-1, .next-img-2, .next-img-3{
+    font-size:40px;
+  }
 
-  height:70px;
-  overflow: scroll;
-}
+  .fa-chevron-circle-left{
+    cursor:pointer;
+    font-size: 20px;
+  }
 
-.product-price, .product-stock_quantity{
-  color:#333333;
-  margin:0 auto;
-  padding:10px;
-  box-shadow: 0 2px 2px #111111;
-}
+  .previous-img-1, .previous-img-2, .previous-img-3, .previous-img-4{
+    font-size:40px;
+  }
 
-#price{
-  font-size:20px;
-  font-weight: bold;
-}
+  .product-more-image-link{
+    height:30px;
+  }
 
+  /* プロダクト説明ラッパー */
+  .product-description{
+    height:70px;
+    overflow: scroll;
+  }
 
-.product-show{
-  margin:0 auto;
-  padding:10px;
-  box-shadow: 0 2px 2px #111111;
-  cursor: pointer;
-}
+  /* プロダクト値段・プロダクト在庫ラッパー */
+  .product-price, .product-stock_quantity{
 
+  }
 
-.product-show a:link,.product-show a:hover,.product-show a:visited,.product-show a:active{
-  color:#333333;
-  display: block;
-  line-height: 40px;
-  background-color: #A9A9A9;
-  border: 1px solid #111111;
-  box-shadow: 0 2px 2px #111111;
-}
+  #product-price{
+    border-radius: 0px 0px 50px 50px;
+  }
 
-.product-show a:hover{
-  background-color: #A9A9A9;
-}
+  #product-stock_quantity{
+    border-radius: 0px 0px 50px 50px;
+  }
 
-.admin-btn-wrapper{
-  padding: 30px;
-}
+  #price{
+    font-size:20px;
+    font-weight: bold;
+  }
 
-.admin-btn{
-  display: inline-block;
-  font-size: 30px;
-  box-shadow: 0 2px 6px #111111;
-  width:150px;
-  margin:0 auto;
-  margin-bottom:20px;
-  background-color: #A9A9A9;
-}
+  /* プロダクト購入・プロダクト編集リンク */
+  .product-show{
+    height: 70px;
+    border-radius: 0px 0px 50px 50px;
+  }
 
-.admin-btn a{
+  .product-show a:link,.product-show a:hover,.product-show a:visited,.product-show a:active{
+    color:#333333;
+    cursor: pointer;
     display: block;
-}
+    line-height: 40px;
+    background-color: #A9A9A9;
+    border: 1px solid #111111;
+    box-shadow: 0 2px 2px #111111;
+    border-radius: 50px 50px 50px 50px;
+  }
+
+  .product-show a:hover{
+    background-color: #A9A9A9;
+  }
+
+  .admin-btn-wrapper{
+    padding: 30px;
+  }
+
+  .admin-btn{
+    display: inline-block;
+    font-size: 30px;
+    box-shadow: 0 2px 6px #111111;
+    width:150px;
+    margin:0 auto;
+    margin-bottom:20px;
+    background-color: #A9A9A9;
+  }
+
+  .admin-btn a{
+    display: block;
+  }
 
 
 
