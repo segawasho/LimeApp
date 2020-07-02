@@ -70,7 +70,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2', '>= 0.4.4'
 end
 
 gem 'kaminari', '~> 1.2.1'
