@@ -50,3 +50,5 @@ test:
 production:
   <<: *default
   database: LimeApp_production
+  username: LimeApp
+  password: <%= ENV['LIMEAPP_DATABASE_PASSWORD'] %>
