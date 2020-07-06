@@ -66,7 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.11'
 
 group :development, :test do
-  gem 'mysql2', '>= 0.4.4'
+  gem 'pg'
 end
 
 group :production do
