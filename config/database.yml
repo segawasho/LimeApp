@@ -49,6 +49,7 @@ test:
 #
 production:
 #半角スペース２個分の空白を開ける
-  database: LimeApp_production
-  username: LimeApp
-  password: <%= ENV['LIMEAPP_DATABASE_PASSWORD'] %>
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
