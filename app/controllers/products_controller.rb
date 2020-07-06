@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new(product_params)
+    @product = Product.new
   end
 
   def create
@@ -82,7 +82,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title,:description,{images: []},:price,:stock_quantity)
+    params.require(:product).permit(:title,:description,:price,:stock_quantity,{images: []})
   end
 
   def if_not_admin
