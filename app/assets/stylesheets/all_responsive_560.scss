@@ -301,7 +301,12 @@ a:link, a:hover, a:visited, a:active{
 
   /* プロダクト説明ラッパー */
   .product-description{
-    height:70px;
+    height:100px;
+    overflow: scroll;
+  }
+
+  .product-description-buy{
+    height:150px;
     overflow: scroll;
   }
 
