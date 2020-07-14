@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   post '/products/:id/pay' => 'products#pay'
   get '/notation' => 'products#notation'
   get '/orders/index' => 'order#index'
+  get '/orders/:id/show' => 'order#show'
+  post '/orders/:id/destroy' => 'order#destroy'
   devise_for :users
 end

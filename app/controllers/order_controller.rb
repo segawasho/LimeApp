@@ -6,6 +6,17 @@ class OrderController < ApplicationController
     @orders = Order.all.order(created_at: :desc)
   end
 
+  def show
+    @order = Order.find_by(id: params[:id])
+  end
+
+  def destroy
+    @order = Order.find_by(id: params[:id])
+    @order.destroy
+    flash[:notice] = "オーダーを削除しました"
+    redirect_to("/orders/index")
+  end
+
   private
   def if_not_admin
     redirect_to root_path, notice:'権限がありません' unless current_user.admin?

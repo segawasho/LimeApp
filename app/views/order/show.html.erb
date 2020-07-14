@@ -1,0 +1,78 @@
+<h1>管理者画面</h1>
+<h2>購入された商品詳細</h2>
+
+<br><br><br>
+
+<div class="order-wrapper">
+
+
+  <div class="order-created_at">
+    <%= @order.created_at.strftime("%Y-%m-%d %H:%M") %>
+  </div>
+
+  <!-- userの定義 -->
+  <% @user = User.find_by(id: @order.user_id) %>
+  <% if @user %>
+    <div class="order-name">
+      <p>名前</p>
+      <%= @user.name %>さん
+    </div>
+    <div class="order-email">
+      <p>メールアドレス</p>
+      <%= @user.email %>
+    </div>
+    <div class="order-address">
+      <p>郵便番号</p>
+      <%= @user.postalcode %>
+    </div>
+    <div class="order-address">
+      <p>住所</p>
+      <%= @user.address %>
+    </div>
+  <% else %>
+  <div class="order-name">
+    退会したユーザー
+  </div>
+  <% end %>
+
+  <!-- productの定義 -->
+  <% @product = Product.find_by(id: @order.product_id) %>
+  <% if @product %>
+    <div class="order-product-title">
+      <p>購入した商品</p>
+      <%= @product.title %>
+    </div>
+    <div class="order-product-price">
+      <p>値段</p>
+      <%= @product.price %>円
+    </div>
+    <div class="order-product-stock_quantity">
+      <p>在庫</p>
+      <p>残り<%= @product.stock_quantity %>個</p>
+    </div>
+    <div class="order-product-image">
+      <%= image_tag @product.images[0].thumb.url %>
+    </div>
+  <% else %>
+    <div class="order-product-title">
+      削除された商品
+    </div>
+  <% end %>
+
+
+</div>
+
+<br><br>
+
+<div class="admin-btn">
+  <%= link_to("削除", "/orders/#{@order.id}/destroy", method: :post) %>
+</div>
+
+
+<br><br><br>
+
+<div class="admin-btn">
+  <%= link_to("戻る", root_path) %>
+</div>
+
+<br><br><br><br><br><br><br><br>
